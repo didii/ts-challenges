@@ -1,0 +1,15 @@
+{
+  "name": "ts-challenges",
+  "version": "1.0.0",
+  "description": "Some small little TypeScript challenges to show the power of its type system.",
+  "scripts": {
+    "serve": "ts-node-dev ./src/main.ts",
+    "options": "cd src/object-options && tsc"
+  },
+  "author": "didii",
+  "devDependencies": {
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {}
+}
