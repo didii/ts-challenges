@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      "@angular/core": ["src/lib/core.d.ts"],
+      "@test": ["src/lib/test.ts"]
+    },
+  },
+  "include": [
+    "./**/*",
+    "../lib/**/*"
+  ]
+}

@@ -4,12 +4,12 @@
   "description": "Some small little TypeScript challenges to show the power of its type system.",
   "scripts": {
     "start": "echo To start, look into the readme: ./readme.md",
-    "example": "ts-node-dev --respawn ./src/mapper-options/mapper-options.final2.ts"
+    "example": "ts-node-dev --respawn ./src/simple-changes/simple-changes.ts"
   },
   "author": "didii",
   "devDependencies": {
-    "typescript": "^4.0.2",
-    "ts-node-dev": "^1.0.0-pre.62"
+    "ts-node-dev": "^1.0.0-pre.62",
+    "typescript": "^4.0.2"
   },
   "dependencies": {}
 }
