@@ -2,7 +2,7 @@
  * Similar to the final1 version, but this also filters out angular lifecycle methods out of the list of possible properties.
  */
 
-import { OnInit, OnDestroy, OnChanges, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from '@angular/core';
+import { OnInit, OnDestroy, OnChanges as NgOnChanges, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from '@angular/core';
 import { MyComponent } from './my-component';
 
 /**
@@ -11,7 +11,7 @@ import { MyComponent } from './my-component';
 type AngularLifecycleMethods =
     | keyof OnInit
     | keyof OnDestroy
-    | keyof OnChanges
+    | keyof NgOnChanges
     | keyof AfterViewInit
     | keyof AfterViewChecked
     | keyof AfterContentInit
@@ -64,7 +64,9 @@ export type SimpleChanges<T> = Partial<{
     [K in KeyOfExcept<T, AngularLifecycleMethods>]: SimpleChange<T[K]>;
 }>;
 
-
+export interface OnChanges {
+    ngOnChanges(changes: SimpleChanges<this>): void;
+}
 
 type Actual = SimpleChanges<MyComponent>;
 type Expected = {

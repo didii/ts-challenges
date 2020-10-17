@@ -4,6 +4,11 @@ import { MyComponent } from './my-component';
 // TODO: implement this type to be better than that of Angular
 export type SimpleChanges<T> = NgSimpleChanges;
 
+// A simple interface to auto-implement the method
+export interface OnChanges {
+    ngOnChanges(changes: SimpleChanges<this>): void;
+}
+
 // TODO: make this code compile
 type Actual = SimpleChanges<MyComponent>;
 type Expected = {

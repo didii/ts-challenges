@@ -1,5 +1,5 @@
 import { OnChanges as NgOnChanges, SimpleChanges as NgSimpleChanges } from '@angular/core';
-import { SimpleChanges, OnChanges } from './simple-changes.final1';
+import { SimpleChanges, OnChanges } from './simple-changes';
 
 // This code below should compile and provide intellisense
 export class MyComponent implements OnChanges {
