@@ -1,8 +1,4 @@
-/*************
- * First proper implementation of typed SimpleChanges. This adheres to every requirement.
- */
-
-import { MyComponent } from './my-component';
+import { OnChanges } from "./angular.core";
 
 /**
  * Sub-type of SimpleChanges to denote changes to a single property
@@ -30,10 +26,7 @@ export type SimpleChanges<T> = {
     [K in keyof T]?: SimpleChange<T[K]>;
 };
 
-export interface OnChanges {
-    ngOnChanges(changes: SimpleChanges<this>): void;
-}
-
+// ------------------------------------------------------------------------------------------------
 
 type Actual = SimpleChanges<MyComponent>;
 type Expected = {
@@ -52,3 +45,49 @@ type Expected = {
 }
 type Assert = Expected extends Actual ? true : false;
 let assert: Assert = true;
+
+// ------------------------------------------------------------------------------------------------
+
+export class MyComponent implements OnChanges {
+    public id: number = 0;
+    public name: string = '';
+
+    public ngOnChanges(changes: SimpleChanges<MyComponent>) {
+        if (changes.id) {
+            console.log('Id changed from ' + changes.id.previousValue.toExponential(2)
+                + ' to ' + changes.id.currentValue.toExponential(2));
+        }
+        if (changes.name) {
+            console.log('Name changed from length ' + changes.name.previousValue.length
+                + ' to ' + changes.name.currentValue.length);
+        }
+    }
+}
+
+let comp = new MyComponent();
+comp.id = 75;
+comp.ngOnChanges({
+    id: {
+        currentValue: 75,
+        previousValue: 0,
+        firstChange: true,
+        isFirstChange() { return true; },
+    },
+});
+
+comp.id = 999;
+comp.name = 'duck';
+comp.ngOnChanges({
+    id: {
+        currentValue: 999,
+        previousValue: 75,
+        firstChange: false,
+        isFirstChange() { return false; },
+    },
+    name: {
+        currentValue: 'duck',
+        previousValue: '',
+        firstChange: true,
+        isFirstChange() { return true; },
+    },
+});

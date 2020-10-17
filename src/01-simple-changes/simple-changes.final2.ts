@@ -1,9 +1,4 @@
-/*************
- * Similar to the final1 version, but this also filters out angular lifecycle methods out of the list of possible properties.
- */
-
-import { OnInit, OnDestroy, OnChanges as NgOnChanges, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from '@angular/core';
-import { MyComponent } from './my-component';
+import { OnInit, OnDestroy, OnChanges, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from 'src/01-simple-changes/angular.core';
 
 /**
  * An alias for all Angular lifecycle methods
@@ -11,7 +6,7 @@ import { MyComponent } from './my-component';
 type AngularLifecycleMethods =
     | keyof OnInit
     | keyof OnDestroy
-    | keyof NgOnChanges
+    | keyof OnChanges
     | keyof AfterViewInit
     | keyof AfterViewChecked
     | keyof AfterContentInit
@@ -64,9 +59,7 @@ export type SimpleChanges<T> = Partial<{
     [K in KeyOfExcept<T, AngularLifecycleMethods>]: SimpleChange<T[K]>;
 }>;
 
-export interface OnChanges {
-    ngOnChanges(changes: SimpleChanges<this>): void;
-}
+// ------------------------------------------------------------------------------------------------
 
 type Actual = SimpleChanges<MyComponent>;
 type Expected = {
@@ -85,3 +78,49 @@ type Expected = {
 }
 type Assert = Expected extends Actual ? true : false;
 let assert: Assert = true;
+
+// ------------------------------------------------------------------------------------------------
+
+export class MyComponent implements OnChanges {
+    public id: number = 0;
+    public name: string = '';
+
+    public ngOnChanges(changes: SimpleChanges<MyComponent>) {
+        if (changes.id) {
+            console.log('Id changed from ' + changes.id.previousValue.toExponential(2)
+                + ' to ' + changes.id.currentValue.toExponential(2));
+        }
+        if (changes.name) {
+            console.log('Name changed from length ' + changes.name.previousValue.length
+                + ' to ' + changes.name.currentValue.length);
+        }
+    }
+}
+
+let comp = new MyComponent();
+comp.id = 75;
+comp.ngOnChanges({
+    id: {
+        currentValue: 75,
+        previousValue: 0,
+        firstChange: true,
+        isFirstChange() { return true; },
+    },
+});
+
+comp.id = 999;
+comp.name = 'duck';
+comp.ngOnChanges({
+    id: {
+        currentValue: 999,
+        previousValue: 75,
+        firstChange: false,
+        isFirstChange() { return false; },
+    },
+    name: {
+        currentValue: 'duck',
+        previousValue: '',
+        firstChange: true,
+        isFirstChange() { return true; },
+    },
+});
