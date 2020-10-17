@@ -1,8 +1,8 @@
-import { SimpleChanges as AngularSimpleChanges } from '@angular/core';
+import { SimpleChanges as NgSimpleChanges } from '@angular/core';
 import { MyComponent } from './my-component';
 
 // TODO: implement this type to be better than that of Angular
-export type SimpleChanges<T> = AngularSimpleChanges;
+export type SimpleChanges<T> = NgSimpleChanges;
 
 // TODO: make this code compile
 type Actual = SimpleChanges<MyComponent>;

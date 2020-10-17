@@ -1,12 +1,12 @@
-import { OnChanges } from '@angular/core';
-import { SimpleChanges } from './simple-changes';
+import { OnChanges as NgOnChanges, SimpleChanges as NgSimpleChanges } from '@angular/core';
+import { SimpleChanges, OnChanges } from './simple-changes.final1';
 
 // This code below should compile and provide intellisense
 export class MyComponent implements OnChanges {
     public id!: number;
     public name!: string;
 
-    public ngOnChanges(changes: SimpleChanges<MyComponent>) {
+    public ngOnChanges(changes: SimpleChanges<this>) {
 
         if (changes.id) { //<- intellisense
             let binary = changes.id.currentValue.toString(2); //<- intellisense on every property
@@ -19,8 +19,8 @@ export class MyComponent implements OnChanges {
         }
 
         // This should give a compilation error
-        if (changes.someNonExistingProperty) {
-            //this should never be reached in 'normal' Angular code
-        }
+        // if (changes.someNonExistingProperty) {
+        //     //this should never be reached in 'normal' Angular code
+        // }
     }
 }

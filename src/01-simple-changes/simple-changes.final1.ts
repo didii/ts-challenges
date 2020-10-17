@@ -3,11 +3,6 @@
  */
 
 import { MyComponent } from './my-component';
-import { describe } from '@test';
-
-describe('test', () => {
-    console.log('yay?');
-});
 
 /**
  * Sub-type of SimpleChanges to denote changes to a single property
@@ -34,6 +29,10 @@ export type SimpleChanges<T> = {
     //    where T[K] the type of property K represents
     [K in keyof T]?: SimpleChange<T[K]>;
 };
+
+export interface OnChanges {
+    ngOnChanges(changes: SimpleChanges<this>): void;
+}
 
 
 type Actual = SimpleChanges<MyComponent>;
