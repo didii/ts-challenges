@@ -1,6 +1,7 @@
 ## Challenge: Typed SimpleChanges
 
-Make a typed implementation of the `SimpleChanges` of Angular (located in `@angular/core`).
+Make a typed implementation of the `SimpleChanges` of Angular (located in `./angular.core`).
+There is an example component made 
 
 ### Requirements
 
@@ -15,7 +16,7 @@ Go to [simple.changes.ts](./simple-changes.ts) to start.
 ### Notes
 
 * When implementing your type, the code in `MyComponent` will most likely not compile anymore. Keep trying until it does!
-* There are no tests since this is all compiler-based, check VSCodes intellisense
+* This is one of the few exercises you'd might want to use in production code
 * If the requirements aren't clear, check the example below
 
 ### Example
@@ -45,6 +46,8 @@ type Expected = {
 type Assert = Expected extends Actual ? true : false;
 let assert: Assert = true;
 ```
+
+In words: we should mutate the types of the properties of `SomeComponent` to contain the properties of Angulars `SimpleChange` where `currentValue` and `previousValue` are of the type of the original parent type.
 
 ### Solution
 

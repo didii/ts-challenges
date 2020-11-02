@@ -17,7 +17,6 @@ export interface SimpleChanges {
 export interface OnChanges {
   ngOnChanges(changes: SimpleChanges): void;
 }
-
 export interface OnInit {
   ngOnInit(): void;
 }

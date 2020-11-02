@@ -22,7 +22,7 @@ type Expected = {
     };
 }
 type Assert = Expected extends Actual ? true : false;
-let assert: Assert = true;
+let assert: Assert = false;
 
 // ------------------------------------------------------------------------------------------------
 

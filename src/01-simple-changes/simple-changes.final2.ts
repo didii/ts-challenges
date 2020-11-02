@@ -1,4 +1,4 @@
-import { OnInit, OnDestroy, OnChanges, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from 'src/01-simple-changes/angular.core';
+import { OnInit, OnDestroy, OnChanges, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked } from './angular.core';
 
 /**
  * An alias for all Angular lifecycle methods
