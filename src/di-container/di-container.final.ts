@@ -1,4 +1,4 @@
-import { Type } from "@angular/core";
+import { Type } from "./angular.core";
 
 /**
  * Helper interface for our registrations to allow registrations using factories or values.
