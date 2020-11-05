@@ -1,4 +1,4 @@
-import { OnChanges } from "./angular.core";
+import { OnChanges } from './angular.core';
 
 /**
  * Sub-type of SimpleChanges to denote changes to a single property
