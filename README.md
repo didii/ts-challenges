@@ -21,7 +21,7 @@ Please use this power responsibly.
 ### For TS-supporting IDE users
 
 Just start coding, no additional configuration or installs required.
-It will automatically show you any compiler errors and provide intellisense.
+It will automatically show you any compiler errors and provide auto-complete.
 For VSCode: press F5 while in a `.ts`-file to execute it and have it stop at breakpoints.
 
 ### For non-IDE users

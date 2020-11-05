@@ -10,7 +10,7 @@ We'll want to map an object from a source type `TSource` to a destination type `
   * <input type="checkbox"> `default`: property name of `TSource` is the same as the configured property
   * <input type="checkbox"> `ignore`: skips the mapping of the configured property
   * <input type="checkbox"> `mapFrom`: maps the given property name of `TSource` to the configured property)
-    * <input type="checkbox"> Intellisense should list all properties with matching type of `TSource`
+    * <input type="checkbox"> Auto-complete should list all properties with matching type of `TSource`
   * <input type="checkbox"> `func`: maps using the given function with `TSource` as argument and the configured property type as return type)
   * <input type="checkbox"> (Optional) Allow for nested options
 * <input type="checkbox"> (Optional) Allow modular configuration for nested objects
