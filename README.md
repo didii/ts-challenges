@@ -18,7 +18,7 @@ Please use this power responsibly.
 1. Install [Node.js](https://nodejs.org/en/)
 2. Run `npm install`
 
-### For VSCode (or any TS-supporting IDE) users
+### For TS-supporting IDE users
 
 Just start coding, no additional configuration or installs required.
 It will automatically show you any compiler errors and provide intellisense.
@@ -34,9 +34,9 @@ More about `ts-node-dev` [here](https://github.com/whitecolor/ts-node-dev#readme
 These challenges are sort-of ordered from easy to hard.
 Your experience might vary, depending on your knowledge of Java- and TypeScript.
 
-### Typed SimpleChanges
+### 01. Typed SimpleChanges
 
-Make Angulars `SimpleChanges` type, that `ngOnChanges` accept, properly typed.
+Make Angulars `SimpleChanges` typed, that `ngOnChanges` accept, properly typed.
 
 [Click here](./src/simple-changes/readme.md) to start.
 
