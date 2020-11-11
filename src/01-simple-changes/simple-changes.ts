@@ -1,4 +1,4 @@
-import { SimpleChanges as NgSimpleChanges, OnChanges } from './angular.core';
+import { SimpleChanges as NgSimpleChanges, OnChanges, SimpleChange } from './angular.core';
 
 // TODO: implement this type to be better than that of Angular
 export type SimpleChanges<T> = NgSimpleChanges;
@@ -50,16 +50,6 @@ comp.ngOnChanges({
 comp.id = 999;
 comp.name = 'duck';
 comp.ngOnChanges({
-    id: {
-        currentValue: 999,
-        previousValue: 75,
-        firstChange: false,
-        isFirstChange() { return false; },
-    },
-    name: {
-        currentValue: 'duck',
-        previousValue: '',
-        firstChange: true,
-        isFirstChange() { return true; },
-    },
+    id: new SimpleChange(75,999,false,),
+    name: new SimpleChange('', 'duck', true),
 });

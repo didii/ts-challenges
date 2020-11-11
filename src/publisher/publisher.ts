@@ -18,7 +18,7 @@ export class Publisher implements IPublisher {
     throw Error('Not implemented');
   }
 
-  public close() {
+  public close(): void {
     this.subject.unsubscribe();
   }
 }
