@@ -25,7 +25,3 @@ Go to [navigation.services.ts](navigation.services.ts) to start.
 
 * If you do it the same way I did, VSCodes auto-complete won't correctly suggest properties on the data object. All properties of all routes will be shown. TypeScript will still correctly fail the compile.
 * It's debatable if you'd want this in production code. When routes are properly split up between modules, this gets a lot more tricky to implement properly and the extra effort might not be worth it
-
-### Solution
-
-See [navigation.service.final.ts](./navigation.service.final.ts) for a complete solution.

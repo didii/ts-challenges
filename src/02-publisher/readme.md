@@ -12,7 +12,3 @@ Use the fact that classes exist at runtime to filter the correct messages.
 ### Notes
 
 * There are hidden properties on every object ;)
-
-### Solution
-
-Check the file [./publisher.final.ts](./publisher.final.ts).
