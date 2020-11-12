@@ -1,12 +1,7 @@
 import { Observable, Subject } from 'rxjs';
-import { Type } from './angular.core';
+import { filter } from 'rxjs/operators';
 
-export interface IPublisher {
-  publish(message: any): void;
-  listen(type: any): Observable<any>;
-}
-
-export class Publisher implements IPublisher {
+export class Publisher {
   private subject = new Subject<any>();
 
   public publish(message: any): void {
@@ -14,8 +9,8 @@ export class Publisher implements IPublisher {
   }
 
   public listen(type: any): Observable<any> {
-    // TODO: implement
-    throw Error('Not implemented');
+    // TODO: implement the filter
+    return this.subject.pipe(filter(x => true));
   }
 
   public close(): void {
