@@ -1,6 +1,6 @@
 import { DiContainer } from './di-container';
 import { MyFirstService, MySecondService, MyThirdService, HeroService, SuperService, SuperVariantService1 } from './services';
-import { describe, beforeEach, it, expect } from '../lib/test';
+import { describe, beforeEach, it, expect } from './test';
 
 describe('DI-container', () => {
     let container: DiContainer;
