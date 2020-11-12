@@ -39,17 +39,12 @@ export class MyComponent implements OnChanges {
 let comp = new MyComponent();
 comp.id = 75;
 comp.ngOnChanges({
-    id: {
-        currentValue: 75,
-        previousValue: 0,
-        firstChange: true,
-        isFirstChange() { return true; },
-    },
+    id: new SimpleChange(0, 75, true),
 });
 
 comp.id = 999;
 comp.name = 'duck';
 comp.ngOnChanges({
-    id: new SimpleChange(75,999,false,),
+    id: new SimpleChange(75, 999, false,),
     name: new SimpleChange('', 'duck', true),
 });
