@@ -20,8 +20,3 @@ A spec file is added so you can validate your changes.
 * There are simple test services defined for you in `./services.ts`
 * Don't forget to set the variable `TEST` to `true` if you want to validate your implementation against the requirements
 * Note that resolving nested services are a LOT harder and are out of scope for this challenge
-
-### Solution
-
-Check the file [./di-container.final.ts](./di-container.final.ts).
-I used the same conventions as Angular with `useFactory`, `useValue`, etc.

@@ -48,8 +48,3 @@ let assert: Assert = true;
 ```
 
 In words: we should mutate the types of the properties of `SomeComponent` to contain the properties of Angulars `SimpleChange` where `currentValue` and `previousValue` are of the type of the original parent type.
-
-### Solution
-
-Check the file [simple-changes.final1.ts](./simple-changes.final1.ts) for the implementation without the optional requirements.
-Check [simple-changes.final2.ts](./simple-changes.final2.ts) for a possible implementation including the optional requirements.
