@@ -1,6 +1,10 @@
 import { Observable, Subject } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { Type } from './angular.core';
+
+/** Any object that has a constructor */
+type Type<T> = {
+  new (...args: any[]): T;
+};
 
 /** A typed event publisher */
 export class Publisher {
